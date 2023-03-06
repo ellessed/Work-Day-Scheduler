@@ -25,6 +25,10 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
+## Deployed Link
+
+https://ellessed.github.io/Work-Day-Scheduler/
+
 ## License
 
 NA
