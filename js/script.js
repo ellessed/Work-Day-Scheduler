@@ -17,7 +17,7 @@ function refreshTimeSlot() {
     if (hour < presentHour) {
       $(element).find(".description").addClass("past");
       //otherwise if the hour is the current hour we set class as present
-    } else if (hour == currentHour) {
+    } else if (hour == presentHour) {
       $(element).find(".description").addClass("present");
       //future time, the text in the middle will change
     } else {
@@ -82,13 +82,15 @@ function produceTimeSlots() {
 
 function init() {
   // Create the time slots
-  loadTimeSlots();
+  produceTimeSlots();
   //depending on the time of day, the timeslots background colour will update
-  timeRefresh();
+  refreshTimeSlot();
   // displays the day of the week
-  var presentDay = moment().format("MMM DD, YYYY, hh:mm:ss a");
-  $("#presentDay").text(presentDay);
-
-  setInterval(timeRefresh, 10000);
+  // var presentDay = moment().format("MMM DD, YYYY, hh:mm:ss a");
+  // $("#presentDay").text(presentDay);
+  window.setInterval(function () {
+    $("#presentDay").html(moment().format("ddd DD/MM/YYYY H:mm:ss"));
+  }, 1000);
+  // setInterval(timeRefresh, 10000);
 }
 init();
